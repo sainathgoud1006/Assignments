@@ -1,0 +1,141 @@
+Q1.Write a standard JS function which takes a number as an argument and returns its factorial.
+function factorial(num) {
+    if(num==0)
+    return 1;
+    return num*factorial(num-1);
+}
+let num = 5;
+console.log("factorial of "+ num +" is " + factorial(num)); 
+ 
+Q2.Write a JS arrow function which takes 2 numbers and returns their sum.
+(a,b) => a + b;
+const a = 4;
+const b = 2;
+console.log(a+b);
+Q3.Write a standard JS function which takes variable number of arguments and prints each argument on the screen and also the number of arguments passed.
+
+function arg(...a)
+{
+    result=arguments.length;
+    console.log('argumnet are: '+a);
+    console.log('total number of arguments passed: '+result )
+}
+arg(5,6,7,8);
+
+Q4.Write a JS arrow function named Login() which takes a username and password. In case any of the arguments or both are not passed, the default values must be CT and CT respectively.
+program:
+function login (username="CT", password="CT")
+{
+console.log("username is:" +username);
+console.log ("password is:" +password);
+}
+login(); 
+Q5.Create a JS object which stores the following details about a vehicle:
+vehicleid                a number
+brand                      a string
+model                     a string
+variant                    a string
+specifications             an object containing the following members:
+                                    firstGear          a function which logs some message
+                                    secondGear     a function which logs some message
+                                    maxSpeed       a number
+                                    changeGear    a function which calls “firstGear” and 
+    “secondGear” functions 
+Print the vehicleid, brand, model, variant on the browser console. Invoke the changeGear function & display the speed on the browser console.
+Program:
+const vehicle= {
+    vehicleid : 5454,
+    brand:"audi",
+    model:"2015",
+    variant:"one year",
+    specification: {
+        firstgear: function(){
+            console.log('it is in firstgear');
+        },
+        secondgear: function(){
+            console.log('it is in secondgear');
+        },
+        maxspeed:78,
+        changegear: function(){
+            return (this.firstgear(), this.secondgear());
+
+        },
+    },
+}
+console.log(`The vehicleid is:${vehicle.vehicleid}`);
+console.log(`The vehicle brand is:${vehicle.brand}`);
+console.log(`The vehicle model is:${vehicle.model}`);
+console.log(`The vehicle variant is:${vehicle.variant}`);
+vehicle.specification.changegear();
+console.log(vehicle.specification.maxspeed);
+
+Q6.Rewrite the function created in assignment 1 as an arrow function.
+Program:
+const factorial = (num) => {
+    var fact = 1;
+    for (let i = 1; i <= num; i++) {
+
+        fact = fact * i;
+    }
+    return fact;
+}
+console.log(`the factorial of number using arrow function is:${factorial(5)}`);
+
+Q7.Pass the object created in assignment 5 to an arrow function. The function must return a string which contains the vehicleid, brand, ,model, variant & speed.
+Program:
+const vehicle = {
+    vehicleid: 1234,
+    brand: 'maruthi',
+    model: '2015',
+    varient: 'one year',
+    specification: {
+        firstGear: function () {
+            console.log('vehicle is in first gear');
+
+        },
+        secondGear: function () {
+            console.log('vehicle is in second gear');
+
+        },
+        maxSpeed: 60,
+        changeGear: function () {
+            return (this.firstGear(), this.secondGear());
+
+        },
+
+
+    },
+
+
+}
+const showVehicleDetails = (vehicle) => {
+    console.log(`The vehicleid is:${vehicle.vehicleid}`);
+console.log(`The vehicle brand is:${vehicle.brand}`);
+console.log(`The vehicle model is:${vehicle.model}`);
+console.log(`The vehicle varient is:${vehicle.varient}`);
+console.log(`The maximum speed is:${vehicle.specification.maxSpeed}`);
+}
+showVehicleDetails(vehicle);
+Q8.Write a JS function which returns the sum of any number of arguments passed. If no arguments are passed, the function must return a zero.
+Program:
+function sum(a=0,b=0,...c)
+{
+     var result=a+b
+     for( let i=0;i<c.length;i++)
+     {
+        result += c[i]
+     }
+     return result;
+
+    }
+    console.log(`sum:${sum()}`);
+
+Q9.Write a JS function which takes 3 arguments, namely arg1, arg2 and arg3. Call the function by passing an array of 3 elements to it. The function must return the maximum value from the array passed to it.
+Program:
+function displayMax(arg1, arg2, arg3) {
+    return Math.max(arg1, arg2, arg3);
+}
+
+//let nums = [2, 5, 3];
+//displayMax(nums);
+console.log(`the maximum number is :${displayMax(7, 2, 9)}`);

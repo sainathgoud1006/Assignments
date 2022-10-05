@@ -1,0 +1,185 @@
+Q1.Run the following code & examine the output carefully: 
+ 
+for(var i=1 ; i<10 ; i++) 
+{ 
+    setTimeout(() => { 
+        console.log(i); 
+    }, 1000) 
+}
+Refactor the code to produce the following output after 1 second: 
+1 
+2 
+3 
+4 
+5 
+6 
+7 
+8 
+9 
+10 
+Html code:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="1.js"></script>
+</body>
+</html> 
+Javascript code:
+function Funct() {
+    setTimeout(() => {
+      for (var i = 1; i < 10; i++) {
+        console.log(i);
+      }
+    }, 1000);
+  }
+  
+  Funct();
+Q2.Write a JS function which accepts an array of 10 numbers. The function must return another array which contains only the odd numbers in the source array. 
+Html code:
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="2.js"></script>
+</body>
+</html>
+Javascript code:
+function Func() {
+    let array = [10, 11, 12, 13, 14, 15, 16, 17, 18, 19];
+    let anotherArray = [];
+    for (let i = 0; i < array.length; i++) {
+      if (array[i] % 2 != 0) {
+        anotherArray.push(array[i]);
+      }
+    }
+    console.log(anotherArray);
+  }
+  Func();
+Q3.Refactor the JS function created in assignment 2 so that the user can pass the filter condition also to the function. For example, only even numbers, only prime numbers, etc. The condition must NOT be passed as a string. 
+ Html code:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="3.js"></script>
+</body>
+</html>
+Javascrpit:
+const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const even = array.filter((number) => {
+  return number % 2 === 0;
+});
+
+console.log(even);
+const array1=[1,2,3,4,5,6,7,8,9,10,15,17,19];
+const primeNumber=array1.filter(number=>{
+    for(let i=2;i<number;i++){
+        if(number%i===0)
+        return false;
+    }
+    return number!==1;
+});
+console.log(primeNumber);
+Q4.Consider the following scenario: 
+There are 3 functions, namely, GetVideo(), AddIntro() and AddSummary(). Each method returns a Promise. The Promise when resolved must return a string after 3 seconds like this: 
+GetVideo()        à returns Got Video 
+AddIntro()         à returns Intro Added 
+AddSummary() à returns Summary Added 
+Invoke the GetVideo() function. The final result must be displayed as: 
+Got Video, Intro Added, Summary Added 
+Html code:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="4.js"></script>
+</body>
+</html>
+Javascript code:
+function GetVideo() {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve("Got video");
+      }, 3000)
+    })
+  }
+  function AddIntro() {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve("Intro Added");
+      }, 3000)
+    })
+  }
+  function AddSummary() {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve("Summary Added");
+      }, 3000)
+    })
+  }
+  
+  GetVideo().then((result)=>{
+      console.log(result);
+  });
+  
+  AddIntro().then((result)=>{
+      console.log(result);
+  });
+  
+  AddSummary().then((result)=>{
+      console.log(result);
+Q5.Rewrite the previous assignment using async and await keywords. 
+Html code:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="5.js"></script>
+</body>
+</html>
+Javascript code:
+async function Func(){
+    function getVideo(){
+    console.log("Got video");
+}
+function AddIntro(){
+    console.log("Intro Added");
+}
+function AddSummary(){
+    console.log("Summary Added");
+}
+getVideo();
+await AddIntro();
+AddSummary();
+}
+Func();
+console.log("the await function checking");
+
+
+
+

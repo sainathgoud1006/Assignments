@@ -1,0 +1,165 @@
+Q1.Write JS code to display all the prime numbers between 5 and 50. Log the output to the browser console. 
+//prime number
+function isPrime(n)
+{
+    if (n<=1)return false;
+    for (var i=2;i<n;i++)
+    {
+        if(n%i==0) return false;
+    }
+    return true;
+}
+var start_number = 5 ;//start_number=prompt("Enter the starting number");5
+var end_number = 50 ;//end_number=prompt("Enter the starting number");50
+ for(var i=start_number;i<=end_number;i++){
+    if(isPrime(i)){
+        console.log(i);
+    }
+ }
+
+Q2.Write JS code to reverse the digits of a number. Store the number in a variable. 
+let rem;
+let rev=0;
+let num=123;
+while(num!=0)
+{
+    rem=num%10;
+    rev=(rev*10)+rem;
+    num=Math.floor(num/10);
+    
+}
+let reverse=rev;
+console.log(reverse);
+
+Q3.Write JS code to reverse a string. Store the string in a variable. 
+
+let string='hello';
+for(let i=string.length-1;i>=0;i--)
+{
+   
+     string[i];
+}
+console.log(string);
+
+Q4.Write JS code to create an array of 10 numbers. Find the first two maximum numbers in the array.
+
+let arr=[1,5,1,2,9,4,4,5,6,7,7];
+let fLargest=0;
+let sLargest=0;
+for(let i=0;i<arr.length;i++)
+{
+    if(arr[i]>fLargest){
+
+    
+    sLargest=fLargest;
+            fLargest=arr[i];
+    }
+}
+    
+        console.log('two largest number in are '+fLargest+' '+sLargest);
+
+Q5.Write JS code to sort the array created in assignment 4 in a reverse order. 
+let s = [3,5,78,3,5,8,9];
+for (let i=0;i<s.length;i++)
+{
+    for(let j=i+1;j<s.length;j++)
+    {
+        let temp = 0;
+        if(s[i]<=s[j])
+        {
+            temp=s[i];
+            s[i]=s[j];
+            s[j]=temp;
+        }
+    }
+}
+document.write(s)
+Q6.Write JS code to find the sum of all even numbers in an array of 10 numbers. In case there are no even numbers, log a message to the browser console saying No even numbers found. 
+program:
+s = [2,36,5,42,34,57,62,23,24]
+function sumEven(arr){
+    result=0;
+    for(let i=0;i<arr.length;i++)
+    {
+        if(arr[i]%2==0)
+        {
+            result=result+arr[i];
+        }
+    }
+    if(result == 0)
+    {
+        console.log("No even numbers found");
+    }
+        return result
+}
+console.log(sumEven(s));
+Q7.Write JS code to find the factorial of each number inside an array of 5 elements. The factorial of each number must then be stored in another array of the same size. Print the result array on the console. 
+arr = [2,3,5,6,7];
+function fact_number(arr1)
+{
+    fact_arr=[];
+    for(let i=0;i<arr1.length;i++)
+    {
+        a = 1;
+        for(let j=arr1[i];j>0;j--)
+        {
+            a=a*j;
+        }
+        fact_arr.push(a);
+    }
+    console.log(fact_arr);
+}
+fact_number(arr);
+Q8.Write JS code to find the number of vowels in the string CITIUSTECH. If the vowel is repeated, it must be counted as 1. 
+str = 'CITIUSTECH';
+function vowel(str1)
+{
+    vowelDict={'A':false,'E':false,'I':false,'O':false,'U':false,}
+    for(let i=0;i<str1.length;i++)
+    {
+        if(str1[i] in vowelDict)
+        {
+        vowelDict[str1[i]]=true;
+        }
+    }
+    count=0;
+    for(let key in vowelDict)
+    {
+        if(vowelDict[key]==true)
+        {
+            count=count+1;
+        }
+    }
+    console.log(count)
+}
+vowel(str);
+Q9.Write JS code to create an array of 5 strings. Convert the last character of each string to uppercase and store the output in the same array. Print the final array. 
+arr = ['priya','arya','preeti','karthik','vivek','sai'];
+function upperCase(arr1)
+{
+    for(let i=0;i<arr1.length;i++)
+    {
+        arr1[i]=arr1[i].slice(0,arr1[i].length-1) + arr1[i].slice(arr1[i].length-1).toUpperCase();
+    }
+    console.log(arr1);
+} 
+upperCase(arr);
+
+Q10.Write JS code to determine how many digits are repeated in the number 7312140905. 
+function repeatdigit(N){
+    var res=0;
+    var c = Array(10).fill(0);
+    while(N>0);{
+        var rem=N%10;
+        c[rem]++;
+        N=Math.floor(N/10);
+    } 
+    for(var i=0;i<10;i++){
+        if(c[i]>1){
+            res++
+        }
+    }
+    return res;
+}
+var N=7312140905;
+document.write (repeatdigit(N));
